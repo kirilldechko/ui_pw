@@ -1,8 +1,5 @@
-from time import sleep
-
 import allure
 from my_pages.data_tests import sale_page_data as sale_data
-from my_pages.locators import sale_page_locators as sp_loc
 
 
 @allure.feature("Sale page")

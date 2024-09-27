@@ -1,4 +1,5 @@
 import allure
+
 from my_pages.data_tests import create_account_data as cpd
 
 

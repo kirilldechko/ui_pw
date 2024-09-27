@@ -1,4 +1,4 @@
-sale_tab_xpath = "//span[text()='Sale']"
+sale_tab_xpath = "//span[text()='Sale']/parent::a"
 search_field_xpath = "//input[@id ='search']"
 search_result_xpath = "//span[@data-ui-id ='page-title-wrapper']"
 commodity_path = "//a[contains(@href, 'tees-men.') and text()='Tees']"
