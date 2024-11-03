@@ -13,15 +13,17 @@ from playwright.sync_api import sync_playwright
 def context():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-    context = browser.new_context()
+        context = browser.new_context()
     yield context
     context.close()
     browser.close()
 
-@pytest.fixture()  # Фикстура для открытия браузера
-def page(context: BrowserContext):  # context - это запущеный браузер
+@pytest.fixture(scope="session")
+def page(context):
     page = context.new_page()
-    return page
+    yield page
+    page.close()
+
 
 
 @pytest.fixture()  # инициализируем создание аккаунта и возвращаем этот объект доступным для тестов
