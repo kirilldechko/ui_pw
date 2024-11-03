@@ -7,7 +7,16 @@ from my_pages.home_page import HomePage
 from my_pages.sale_page import SalePage
 from my_pages.user_account_page import NewUserPage
 from my_pages.commodity_page import CommodityPage
+from playwright.sync_api import sync_playwright
 
+@pytest.fixture(scope="session")
+def context():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+    context = browser.new_context()
+    yield context
+    context.close()
+    browser.close()
 
 @pytest.fixture()  # Фикстура для открытия браузера
 def page(context: BrowserContext):  # context - это запущеный браузер

@@ -58,3 +58,5 @@ pytest-xdist==3.5.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2024.1
+
+playwright~=1.46.0
